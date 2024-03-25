@@ -1,8 +1,13 @@
 import Header from "./Header";
 
-import { Appbar } from "";
 function App() {
-  return <></>;
+  return (
+    <>
+      <Appbar />
+      <Appbar />
+      <Header />
+    </>
+  );
 }
 
 export default App;
