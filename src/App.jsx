@@ -1,10 +1,23 @@
+import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
-
+import Home from "./Home/Home";
+import Auth from "./Auth/Auth";
+import Diary from "./diary/Diary";
 function App() {
   return (
-    <>
-      <Header />
-    </>
+    <div>
+      <header>
+        <Header />
+      </header>
+
+      <section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/diaries" element={<Diary />} />
+        </Routes>
+      </section>
+    </div>
   );
 }
 
