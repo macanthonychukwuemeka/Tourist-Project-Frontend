@@ -1,11 +1,13 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <Box position={"relative"} width="100%" height="90vh">
       <img src="/road.jpg" alt="road img" width="100%" height="70%" />
       <Typography
-        fontFamily=" Dancing Script, cursive"
+        fontFamily="Dancing Script, cursive"
         variant="h3"
         fontWeight="bold"
         textAlign="center"
@@ -19,16 +21,35 @@ const Home = () => {
       >
         Dare to live the Life you've always wanted
       </Typography>
-      <Box
-        width="100%"
-        height="30%"
-        display={"flex"}
-        flexDirection="column"
-        variant="h4"
-        padding={4}
-      >
-        {" "}
-        SHARE YOUR TRAVEL DIARIES WITH US
+      <Box width="100%" height="30%" display={"flex"} flexDirection="column">
+        <Typography
+          fontFamily={"quicksand"}
+          textAlign={"center"}
+          variant="h4"
+          padding={4}
+        >
+          {" "}
+          SHARE YOUR TRAVEL DIARIES WITH US
+        </Typography>
+        <Box margin="auto">
+          <Button
+            LinkComponent={Link}
+            to="/diaries"
+            variant="outlined"
+            sx={{ mr: "2" }}
+          >
+            share your story
+          </Button>
+          <Button
+            LinkComponent={Link}
+            to="/diaries"
+            variant="contain"
+            sx={{ ml: "2" }}
+          >
+            {" "}
+            view diaries
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
