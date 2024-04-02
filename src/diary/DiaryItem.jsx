@@ -1,15 +1,23 @@
 import {
   Avatar,
+  Box,
+  Button,
   Card,
+  CardActions,
   CardContent,
   CardHeader,
   CardMedia,
   IconButton,
   Typography,
 } from "@mui/material";
+
 import React from "react";
-// import { EditLocationAltIcon } from "@mui/icons-material";
-<EditLocationAltIcon />;
+import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
+import EditLocationAltIconAlt from "@mui/icons-material/EditLocationAlt";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+{
+  /* <EditLocationAltIcon />; */
+}
 const DiaryItem = () => {
   return (
     <Card
@@ -31,7 +39,7 @@ const DiaryItem = () => {
         }
         action={
           <IconButton aria-label="settings">
-            {/* {<EditLocationAltIcon />} */}
+            {<EditLocationAltIconAlt />}
           </IconButton>
         }
         title="Shrimp and Chorizo Paella"
@@ -43,12 +51,35 @@ const DiaryItem = () => {
         alt="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+        <Typography paddingBottom={1} variant="h6" color="text.secondary">
+          This impressive paella
         </Typography>
+        <hr />
+        <Box display="flex">
+          <Typography
+            width="12.625rem"
+            paddingTop={1}
+            fontWeight={"bold"}
+            variant="div"
+          >
+            Mexico New zeland
+          </Typography>
+          <Typography paddingTop={1} variant="body2" color="text.secondary">
+            This impressive paella is a perfect party dish and a fun meal to
+            cook together with your guests. Add 1 cup of frozen peas along with
+            the mussels, if you like.
+          </Typography>
+        </Box>
       </CardContent>
+      <CardActions sx={{ marginLeft: "auto" }}>
+        <IconButton color="warning">
+          {" "}
+          <ModeEditOutlineIcon />{" "}
+        </IconButton>
+        <IconButton color="error">
+          <DeleteForeverIcon />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 };

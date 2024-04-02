@@ -11,8 +11,9 @@ const Diary = () => {
       justifyContent="center"
       alignItems={"center"}
     >
-      {[12345]}
-      <DiaryItem />
+      {[1, 2, 3, 4, 5].map((item) => (
+        <DiaryItem key={item} />
+      ))}
     </Box>
   );
 };
