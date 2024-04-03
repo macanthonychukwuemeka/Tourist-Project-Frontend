@@ -3,7 +3,10 @@ import Header from "./Header";
 import Home from "./Home/Home";
 import Auth from "./Auth/Auth";
 import Diary from "./diary/Diary";
+import { useSelector } from "react-redux";
 function App() {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  console.log(isLoggedIn);
   return (
     <div>
       <header>
