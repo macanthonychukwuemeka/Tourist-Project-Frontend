@@ -41,7 +41,7 @@ const Auth = () => {
           margin="auto"
         >
           <Typography padding={2} variant="h4" textAlign={"center"}>
-            {isSignup ? "Login" : "Signup"}
+            {isSignup ? "SignUp" : "Login"}
           </Typography>
           {isSignup && (
             <>
@@ -76,7 +76,7 @@ const Auth = () => {
             type="submit"
             variant="contained"
           >
-            {isSignup ? "Login" : "Signup"}
+            {isSignup ? "Signup" : "Login"}
           </Button>
           <Button
             onClick={() => setisSignup(!isSignup)}
