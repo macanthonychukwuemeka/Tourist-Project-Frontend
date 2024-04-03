@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import DiaryItem from "./DiaryItem";
 import { useEffect } from "react";
 import { getAllPosts } from "../api-helpers/helpers";
 
 const Diary = () => {
+  const [posts, setPosts] = useState();
   useEffect(() => {
     getAllPosts()
-      .then((data) => console.log(data))
+      .then((data) => setPosts(data?.posts))
       .catch((err) => console.log(err));
   }, []);
 
@@ -19,9 +20,18 @@ const Diary = () => {
       justifyContent="center"
       alignItems={"center"}
     >
-      {[1, 2, 3, 4, 5].map((item) => (
-        <DiaryItem key={item} />
-      ))}
+      {posts &&
+        posts.map((item, index) => (
+          <DiaryItem
+            date={new Date(`${item.date}`).toLocaleDateString()}
+            key={index}
+            description={item.description}
+            image={item.image}
+            id={item._id}
+            location={item.location}
+            title={item.title}
+          />
+        ))}
     </Box>
   );
 };

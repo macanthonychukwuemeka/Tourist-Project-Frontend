@@ -18,7 +18,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 {
   /* <EditLocationAltIcon />; */
 }
-const DiaryItem = () => {
+const DiaryItem = ({ title, description, image, location, date, id }) => {
   return (
     <Card
       sx={{
@@ -42,17 +42,14 @@ const DiaryItem = () => {
             {<EditLocationAltIconAlt />}
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={location}
+        header={location}
+        subheader={date}
       />
-      <CardMedia
-        height="194"
-        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDgxODR8MHwxfHNlYXJjaHwxMHx8bW91bnRhaW58ZW58MHx8fHwxNzExOTIzMDQ1fDA&ixlib=rb-4.0.3&q=80&w=1080"
-        alt="Paella dish"
-      />
+      <CardMedia height="194" src={image} alt={title} />
       <CardContent>
         <Typography paddingBottom={1} variant="h6" color="text.secondary">
-          This impressive paella
+          {title}
         </Typography>
         <hr />
         <Box display="flex">
@@ -65,9 +62,7 @@ const DiaryItem = () => {
             Mexico New zeland
           </Typography>
           <Typography paddingTop={1} variant="body2" color="text.secondary">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+            {description}
           </Typography>
         </Box>
       </CardContent>
