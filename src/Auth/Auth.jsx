@@ -15,6 +15,10 @@ const Auth = () => {
     if (isSignup) {
       sendAuthRequest(true, input)
         .then((data) => localStorage.setItem("userId", data.user._id))
+        //to extract the id of the signedup new user
+        //   else {
+        // localStorage.setItem("userId", data.id);
+        //if user already exist, we pull their stored id to authenticate them
         .then(() => {
           dispatch(authAction.login());
         })
