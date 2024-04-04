@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { authAction } from "../Store";
 
 const Auth = () => {
-  const [isSignup, setisSignup] = useState(false);
+  const [isSignup, setisSignup] = useState(true);
   const [input, setInput] = useState({ name: "", email: "", password: "" });
   const dispatch = useDispatch();
 

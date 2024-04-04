@@ -5,7 +5,7 @@ import Auth from "./Auth/Auth";
 import Diary from "./diary/Diary";
 import { useSelector } from "react-redux";
 import Profile from "./Profile/Profile";
-import Add from "./diary/add";
+import Add from "./diary/Addd";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);

@@ -3,6 +3,7 @@ import React from "react";
 import ModeOfTravelIcon from "@mui/icons-material/ModeOfTravel";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const linksArr = ["home", "diaries", "auth"];
 const loggedInLinks = ["home", "diaries", "add", "profile"];
@@ -10,7 +11,7 @@ const loggedInLinks = ["home", "diaries", "add", "profile"];
 const Header = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const [value, setValue] = useState(0);
-
+  console.log(isLoggedIn);
   return (
     <AppBar sx={{ bgcolor: "transparent", position: "sticky" }}>
       <Toolbar>
