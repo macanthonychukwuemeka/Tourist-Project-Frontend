@@ -10,8 +10,10 @@ export const getAllPosts = async () => {
   return data;
 };
 export const sendAuthRequest = async (signup, data) => {
+  // This line declares an asynchronous function named sendAuthRequest which takes two parameters: signup, a boolean indicating whether the user is signing up (true) or logging in (false), and data, an object containing user information such as name, email, and password.
   const res = await axios
     .post(`/user/${signup ? "signup" : "login"}/`, {
+      //we used .post because we want to get something from the user
       name: data.name ? data.name : "",
       email: data.email,
       password: data.password,
