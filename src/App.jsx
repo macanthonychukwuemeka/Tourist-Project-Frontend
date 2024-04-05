@@ -6,6 +6,7 @@ import Diary from "./diary/Diary";
 import { useSelector } from "react-redux";
 import Profile from "./Profile/Profile";
 import Add from "./diary/Addd";
+import DiaryUpdate from "./diary/DiaryUpdate";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/diaries" element={<Diary />} />
           <Route path="/add" element={<Add />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/post/:id" element={<DiaryUpdate />} />
         </Routes>
       </section>
     </div>

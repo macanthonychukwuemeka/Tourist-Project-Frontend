@@ -31,7 +31,7 @@ const Add = () => {
           Add Your Travel Diary
         </Typography>
         <TravelExploreIcon
-          sx={{ fontSize: "40px", paddingLeft: 1, color: "lightcoral" }}
+          sx={{ fontSize: "40px", paddingLeft: 1, color: "lightcoral " }}
         />
       </Box>
       <form onSubmit={handleSubmit}>
