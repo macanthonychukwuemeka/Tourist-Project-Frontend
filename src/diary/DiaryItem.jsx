@@ -15,6 +15,7 @@ import React from "react";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import EditLocationAltIconAlt from "@mui/icons-material/EditLocationAlt";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { Link } from "react-router-dom";
 {
   /* <EditLocationAltIcon />; */
 }
@@ -23,9 +24,9 @@ const DiaryItem = ({ title, description, image, location, date, id, user }) => {
 
   const isLoggedInUser = () => {
     if (localStorage.getItem("userId") === user) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   };
   return (
     <Card
@@ -74,6 +75,7 @@ const DiaryItem = ({ title, description, image, location, date, id, user }) => {
           </Typography>
         </Box>
       </CardContent>
+
       {isLoggedInUser() && (
         <CardActions sx={{ marginLeft: "auto" }}>
           <IconButton LinkComponent={Link} to={`/post/${id}`} color="warning">
