@@ -24,9 +24,9 @@ const DiaryItem = ({ title, description, image, location, date, id, user }) => {
 
   const isLoggedInUser = () => {
     if (localStorage.getItem("userId") === user) {
-      return false;
+      return true;
     }
-    return true;
+    return false;
   };
   return (
     <Card
