@@ -27,7 +27,7 @@ export const sendAuthRequest = async (signup, data) => {
 };
 
 export const addPost = async (data) => {
-  const res = axios
+  const res = await axios
     .post("/posts/", {
       title: data.title,
       description: data.description,
@@ -63,8 +63,31 @@ export const postUpdate = async (data, id) => {
     .catch((err) => console.log(err));
 
   if (res.status !== 200) {
-    return console.log("Unable to udpate");
+    return console.log("Unable to update");
   }
   const resData = await res.data;
   return resData;
 };
+export const postDelete = async (id) => {
+  const res = await axios
+    .delete(`/posts/${id}`)
+    .catch((err) => console.log(err));
+
+  if (res.status !== 200) {
+    return console.log("Unable to delete");
+  }
+
+  const resData = await res.data;
+  return resData;
+};
+// export const getUserDetails = async () => {
+//   const id = localStorage.getItem("userId");
+//   const res = await axios.get(`/user/${id}`).catch((err) => console.log(err));
+
+//   if (res.status !== 200) {
+//     return console.log("No user found");
+//   }
+
+//   const resData = await res.data;
+//   return resData;
+// };
