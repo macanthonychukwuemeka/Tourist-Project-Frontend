@@ -1,32 +1,47 @@
 import {
+  Alert,
   Avatar,
   Box,
-  Button,
   Card,
   CardActions,
   CardContent,
   CardHeader,
   CardMedia,
   IconButton,
+  Snackbar,
   Typography,
 } from "@mui/material";
 
-import React from "react";
+import React, { useState } from "react";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import EditLocationAltIconAlt from "@mui/icons-material/EditLocationAlt";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Link } from "react-router-dom";
-{
-  /* <EditLocationAltIcon />; */
-}
-const DiaryItem = ({ title, description, image, location, date, id, user }) => {
-  // only the logged in user will use the edith and delete function
+import { postDelete } from "../api-helpers/helpers";
 
+const DiaryItem = ({
+  title,
+  description,
+  image,
+  location,
+  date,
+  id,
+  user,
+  name,
+}) => {
+  // only the logged in user will use the edith and delete function
+  const [open, setOpen] = useState(false);
   const isLoggedInUser = () => {
     if (localStorage.getItem("userId") === user) {
-      return false;
+      return true;
     }
-    return true;
+    return false;
+  };
+  const handleDelete = () => {
+    postDelete(id)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+    setOpen(true);
   };
   return (
     <Card
@@ -82,11 +97,24 @@ const DiaryItem = ({ title, description, image, location, date, id, user }) => {
             {" "}
             <ModeEditOutlineIcon />{" "}
           </IconButton>
-          <IconButton color="error">
+          <IconButton onClick={handleDelete} color="error">
             <DeleteForeverIcon />
           </IconButton>
         </CardActions>
       )}
+      <Snackbar
+        open={open}
+        autoHideDuration={5000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert
+          onClose={() => setOpen(false)}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          This is a success message!
+        </Alert>
+      </Snackbar>
     </Card>
   );
 };

@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPostDetails, postUpdate } from "../api-helpers/helpers";
 import { Box, Button, FormLabel, TextField, Typography } from "@mui/material";
-import { useState } from "react";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 
 const DiaryUpdate = () => {
@@ -65,7 +64,7 @@ const DiaryUpdate = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <Box display="flex" flexDirection={"column"} width="100" height="100">
+    <Box display="flex" flexDirection={"column"} width="100%" height="100%">
       <Box display="flex" margin="auto" padding={2}>
         <Typography variant="h4" fontFamily={"dancing script"}>
           {" "}

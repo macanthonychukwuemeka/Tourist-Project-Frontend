@@ -2,36 +2,33 @@ import { Box, Button, FormLabel, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { sendAuthRequest } from "../api-helpers/helpers";
 import { useDispatch } from "react-redux";
-import { authAction } from "../Store";
+import { authAction } from "../store";
 
 const Auth = () => {
   const [isSignup, setisSignup] = useState(true);
   const [input, setInput] = useState({ name: "", email: "", password: "" });
   const dispatch = useDispatch();
-
+  const onResReceived = (data) => {
+    //to extract the id of the signedup new user
+    //   else {
+    // localStorage.setItem("userId", data.id);
+    //if user already exist, we pull their stored id to authenticate them
+    if (isSignup) {
+      localStorage.setItem("userId", data.user._id);
+    } else {
+      localStorage.setItem("userId", data.id);
+    }
+    dispatch(authAction.login());
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(input);
     if (isSignup) {
-      sendAuthRequest(true, input)
-        .then((data) => localStorage.setItem("userId", data.user._id))
-        //to extract the id of the signedup new user
-        //   else {
-        // localStorage.setItem("userId", data.id);
-        //if user already exist, we pull their stored id to authenticate them
-        .then(() => {
-          dispatch(authAction.login());
-        })
-        .catch((err) => console.log(err));
+      sendAuthRequest(true, input).then(onResReceived);
     } else {
-      sendAuthRequest(false, input).then((data) =>
-        localStorage
-          .setItem("userId", data.id)
-          .then(() => {
-            dispatch(authAction.login());
-          })
-          .catch((err) => console.log(err))
-      );
+      sendAuthRequest(false, input)
+        .then(onResReceived)
+        .catch((err) => console.log(err));
     }
   };
   const handleChange = (e) => {
