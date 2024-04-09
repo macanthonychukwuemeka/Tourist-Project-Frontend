@@ -36,7 +36,7 @@ const Home = () => {
             LinkComponent={Link}
             to="/diaries"
             variant="outlined"
-            sx={{ mr: "2" }}
+            sx={{ mr: 2 }}
           >
             share your story
           </Button>
@@ -44,10 +44,9 @@ const Home = () => {
             LinkComponent={Link}
             to="/diaries"
             variant="contain"
-            sx={{ ml: "2" }}
+            sx={{ ml: 2 }}
           >
-            {" "}
-            view diaries
+            View Diaries
           </Button>
         </Box>
       </Box>

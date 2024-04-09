@@ -2,15 +2,15 @@ import { Box, Button, FormLabel, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { sendAuthRequest } from "../api-helpers/helpers";
 import { useDispatch } from "react-redux";
-import { authAction } from "../store";
 import { useNavigate } from "react-router-dom";
+import { authAction } from "../store";
 
 const Auth = () => {
-  const dispatch = useDispatch();
   const naviagte = useNavigate();
 
+  const dispatch = useDispatch();
+
   const [isSignup, setisSignup] = useState(true);
-  const [input, setInput] = useState({ name: "", email: "", password: "" });
 
   const onResReceived = (data) => {
     //to extract the id of the signedup new user
@@ -36,6 +36,7 @@ const Auth = () => {
         .catch((err) => console.log(err));
     }
   };
+  const [input, setInput] = useState({ name: "", email: "", password: "" });
   const handleChange = (e) => {
     setInput((prevState) => ({
       ...prevState,

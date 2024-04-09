@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DiaryItem from "./DiaryItem";
-import { useEffect } from "react";
 import { getAllPosts } from "../api-helpers/helpers";
 
 const Diary = () => {
   const [posts, setPosts] = useState();
+  console.log(posts);
   useEffect(() => {
     getAllPosts()
       .then((data) => setPosts(data?.posts))
@@ -30,7 +30,8 @@ const Diary = () => {
             id={item._id}
             location={item.location}
             title={item.title}
-            user={item.user}
+            // user={item.user._id}
+            // name={item.user.name}
           />
         ))}
     </Box>

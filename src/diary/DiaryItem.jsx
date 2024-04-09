@@ -47,7 +47,7 @@ const DiaryItem = ({
     <Card
       sx={{
         Width: "50%",
-        height: "50vh",
+        height: "auto",
         margin: 1,
         Padding: 1,
         display: "flex",
@@ -58,7 +58,7 @@ const DiaryItem = ({
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-            R
+            {name.charAt(0)}
           </Avatar>
         }
         action={
@@ -83,7 +83,7 @@ const DiaryItem = ({
             fontWeight={"bold"}
             variant="div"
           >
-            Mexico New zeland
+            {name}
           </Typography>
           <Typography paddingTop={1} variant="body2" color="text.secondary">
             {description}

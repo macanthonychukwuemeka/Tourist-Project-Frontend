@@ -10,8 +10,8 @@ const loggedInLinks = ["home", "diaries", "add", "profile"];
 
 const Header = () => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  const [value, setValue] = useState(0);
-  console.log(isLoggedIn);
+  const [value, setValue] = useState();
+  // console.log(isLoggedIn);
   return (
     <AppBar sx={{ bgcolor: "transparent", position: "sticky" }}>
       <Toolbar>
