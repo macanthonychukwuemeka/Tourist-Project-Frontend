@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import { sendAuthRequest } from "../api-helpers/helpers";
 import { useDispatch } from "react-redux";
 import { authAction } from "../store";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+  const dispatch = useDispatch();
+  const naviagte = useNavigate();
+
   const [isSignup, setisSignup] = useState(true);
   const [input, setInput] = useState({ name: "", email: "", password: "" });
-  const dispatch = useDispatch();
+
   const onResReceived = (data) => {
     //to extract the id of the signedup new user
     //   else {
@@ -19,6 +23,7 @@ const Auth = () => {
       localStorage.setItem("userId", data.id);
     }
     dispatch(authAction.login());
+    naviagte("/diaries");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
