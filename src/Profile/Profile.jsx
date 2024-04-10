@@ -63,8 +63,8 @@ const Profile = () => {
                 id={post.id}
                 image={post.image}
                 location={post.location}
-                user={item.user._id}
-                name={item.user.name}
+                user={user._id}
+                name={user.name}
               />
             ))}
           </Box>{" "}

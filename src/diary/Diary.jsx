@@ -31,7 +31,7 @@ const Diary = () => {
             location={item.location}
             title={item.title}
             // user={item.user._id}
-            // name={item.user.name}
+            name={item.name}
           />
         ))}
     </Box>
