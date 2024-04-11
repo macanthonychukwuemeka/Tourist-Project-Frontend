@@ -8,7 +8,6 @@ import { authAction } from "../store";
 import { useNavigate } from "react-router-dom";
 import DiaryItem from "../diary/DiaryItem";
 const Profile = () => {
-  // const navigate = useNavigate();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [user, setUser] = useState();
